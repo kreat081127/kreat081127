@@ -51,3 +51,19 @@ while True:
       pg.draw.line(win,(0,0,0), (0,y),(w,y))
       pg.draw.line(win, (0,0,0), (x, 0), (x, h))
   pg.display.update()
+
+draw_text(win, name, 15, 15, color=(0,0,0))
+draw_text(win, f'Score:{score}', WIDTH // 2, 15,color=(0,0,0))
+
+collision = pg.sprite.spritecollide(player,apple_sprites, False, pg.sprite.collide_mask) 
+if collision:
+    score += 1
+    apple.new_pos()
+
+class Tail(pg.sprite.Sprite):
+  def __init__(self):
+    super().__init__(*group)
+    self.speed_x = player.speed_x
+    self.speed_y = player.speed_y
+    self_image = pg.image.load('')
+    self.rect 
